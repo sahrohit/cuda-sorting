@@ -1,10 +1,18 @@
-all: thrust singlethread multithread
+CXX = nvcc
+TARGETS = thrust singlethread multithread
+
+.PHONY: all clean
+
+all: $(TARGETS)
 
 thrust: thrust.cu
-	nvcc thrust.cu -o thrust
-	
-singlethread: singlethread.cu
-	nvcc singlethread.cu -o singlethread
+	$(CXX) -o $@ $<
 
-multithread: multithread
-	nvcc multithread.cu -o multithread
+singlethread: singlethread.cu
+	$(CXX) -o $@ $<
+
+multithread: multithread.cu
+	$(CXX) -o $@ $<
+
+clean:
+	rm -f $(TARGETS)
