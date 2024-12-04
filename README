@@ -1,0 +1,57 @@
+# CUDA Sorting Comparison
+
+This project implements single threaded, multi-threaded algorithms and Thrust's sort CUDA.
+
+Submitted by Rohit Kumar Sah (800819633) & Atulesh Karna (800675898)
+
+## Implementations
+
+1. Single Threded Bubble Sort
+   - singlethred.cu
+2. Multi Threaded Bubble Sort
+   - multithread.cu
+3. Reference implementation using Thrust's sort (reference)
+
+## Building
+
+To build all implementations, simply run:
+
+```
+make
+```
+
+This will create all seven executables.
+
+To clean up build files:
+
+```
+make clean
+```
+
+## Running
+
+Each program takes three command-line arguments:
+
+1. Number of random integers to generate
+2. Seed value for random number generation
+3. 1 for Print Array and 0 for log-less execution
+
+Example usage:
+
+```
+./singlethread 15000 1000 1
+```
+
+This runs the single threaded bubble sort implementation on 15000 integers, with a random seed of 1000.
+
+You can run all of them at once, and generate the runtime of each in a single file, but running the `run.sh` bash file. You can also tweak the input sizes and seed in the file as well. 
+
+```
+bash run.sh
+```
+
+## Notes
+
+- All implementations use the same random number generation for fair comparison
+- Timing information is printed to stderr at the end of each run
+- The parallel implementations use CUDA for parallelization
